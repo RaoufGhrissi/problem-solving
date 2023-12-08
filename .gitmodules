@@ -1,0 +1,42 @@
+[submodule "Topics/Binary-search"]
+	path = Topics/Binary-search
+	url = https://github.com/RaoufGhrissi/Binary-search.git
+[submodule "Topics/two-pointers"]
+	path = Topics/two-pointers
+	url = https://github.com/RaoufGhrissi/two-pointers.git
+[submodule "Topics/Trees"]
+	path = Topics/Trees
+	url = https://github.com/RaoufGhrissi/Trees.git
+[submodule "Topics/Fenwik_tree"]
+	path = Topics/Fenwik_tree
+	url = https://github.com/RaoufGhrissi/Fenwik_tree.git
+[submodule "Topics/Linked-List-and-Data-structures-in-C"]
+	path = Topics/Linked-List-and-Data-structures-in-C
+	url = https://github.com/RaoufGhrissi/Linked-List-and-Data-structures-in-C.git
+[submodule "Topics/Segment-tree-with-lazy-propagation"]
+	path = Topics/Segment-tree-with-lazy-propagation
+	url = https://github.com/RaoufGhrissi/Segment-tree-with-lazy-propagation.git
+[submodule "Topics/Dynamic-programming"]
+	path = Topics/Dynamic-programming
+	url = https://github.com/RaoufGhrissi/Dynamic-programming.git
+[submodule "Topics/backtracking"]
+	path = Topics/backtracking
+	url = https://github.com/RaoufGhrissi/backtracking.git
+[submodule "Topics/Segment-tree"]
+	path = Topics/Segment-tree
+	url = https://github.com/RaoufGhrissi/Segment-tree.git
+[submodule "Topics/Graph-Theory"]
+	path = Topics/Graph-Theory
+	url = https://github.com/RaoufGhrissi/Graph-Theory.git
+[submodule "Competitions/codeforces"]
+	path = Competitions/codeforces
+	url = https://github.com/RaoufGhrissi/codeforces
+[submodule "Competitions/Cf"]
+	path = Competitions/Cf
+	url = https://github.com/RaoufGhrissi/codeforces
+[submodule "Competitions/tcpc2022"]
+	path = Competitions/tcpc2022
+	url = https://github.com/RaoufGhrissi/TCPC-2022.git
+[submodule "Competitions/HackerCup2021"]
+	path = Competitions/HackerCup2021
+	url = https://github.com/RaoufGhrissi/Facebook-HackerCup2021.git
