@@ -2,7 +2,11 @@
 
 using namespace std;
 
-//https://leetcode.com/problems/longest-happy-prefix/description/
+#include <bits/stdc++.h>
+
+using namespace std;
+
+//https://leetcode.com/problems/minimum-time-to-revert-word-to-initial-state-ii/
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -72,6 +76,7 @@ class StringHashing {
 
             return res;
         }
+
         int get1(int a, int b) {
             return get(k1, p1, m1, a, b);
         }
@@ -79,40 +84,30 @@ class StringHashing {
         int get2(int a, int b) {
             return get(k2, p2, m2, a, b);
         }
-
 };
 
 class Solution {
 public:
-    int countSubstrings(string s) {
+    int minimumTimeToInitialState(string s, int k) {
+        StringHashing hash = StringHashing(s);
 
-        StringHashing sHashing = StringHashing(s);
-        string inv = s;
-        reverse(inv.begin(), inv.end());
-        StringHashing invHashing = StringHashing(inv);
-
-        int ans = 0;
         int n = s.size();
-        for (int start=0 ; start<n ; start++)
-        {
-            for (int end=start ; end<n ; end++) {
-                int invStart = n-1-end;
-                int invEnd = n-1-start;
-                int hashS1 = sHashing.get(sHashing.k1, sHashing.p1, sHashing.m1, start, end);
-                int hashS2 = sHashing.get(sHashing.k2, sHashing.p2, sHashing.m2, start, end);
-                int hashInv1 = invHashing.get(invHashing.k1, invHashing.p1, invHashing.m1, invStart, invEnd);
-                int hashInv2 = invHashing.get(invHashing.k2, invHashing.p2, invHashing.m2, invStart, invEnd);
-                if (hashS1 == hashInv1 && hashS2 == hashInv2)
-                    ans++;
+        int mx = 0;
+        for (int i=0 ; i<n-1 ; i++) {
+            int prefix1 = hash.get1(0, i);
+            int prefix2 = hash.get2(0, i);
+            int suffix1 = hash.get1(n-1-i, n-1);
+            int suffix2 = hash.get2(n-1-i, n-1);
+
+            if (prefix1 == suffix1 && prefix2 == suffix2) {
+                int sz = i+1;
+
+                int rest = n-sz;
+                if (rest%k) continue;
+                mx = max(mx, sz);
             }
         }
 
-        return ans;
+        return (n-mx)/k + ((n-mx)%k ? 1 : 0);
     }
 };
-
-int main() {
-
-    cout<<Solution().countSubstrings("abc");
-    return 0;
-}

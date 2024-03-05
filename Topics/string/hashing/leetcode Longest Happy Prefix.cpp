@@ -42,12 +42,12 @@ class StringHashing {
 
         void generate_hash_data(vector<int> &k, vector<int> &p, int a, int m)
         {
-            k[0] = s[0]-'a';
+            k[0] = s[0]-'a'+1;
             p[0] = 1;
             int n = s.size();
             for (int i=1 ; i<n ; i++)
             {
-                k[i] = (k[i-1]*1ll*a + s[i]-'a')%m;
+                k[i] = (k[i-1]*1ll*a + s[i]-'a'+1)%m;
                 p[i] = (p[i-1]*1ll*a)%m;
             }
         }
@@ -67,6 +67,14 @@ class StringHashing {
                 res += m;
 
             return res;
+        }
+
+        int get1(int a, int b) {
+            return get(k1, p1, m1, a, b);
+        }
+
+        int get2(int a, int b) {
+            return get(k2, p2, m2, a, b);
         }
 
         string result() {
