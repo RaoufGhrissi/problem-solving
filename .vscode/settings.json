@@ -10,6 +10,9 @@
         "tuple": "cpp",
         "utility": "cpp",
         "variant": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "ostream": "cpp",
+        "string": "cpp",
+        "string_view": "cpp"
     }
 }
