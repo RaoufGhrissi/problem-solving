@@ -3,6 +3,10 @@
 #define pp pair<ll,ll>
 #define inf 1e18
 
+//dp, seg tree with compression, not direct application for seg tree
+//dp opitmized, 
+// for (int i=l ; i<r ; i++) ans = max(ans, rec(i, k)) => najem naamel segtree o(n) => lgo(n) / TLE => accepted
+
 using namespace std;
 
 class Compressor {
