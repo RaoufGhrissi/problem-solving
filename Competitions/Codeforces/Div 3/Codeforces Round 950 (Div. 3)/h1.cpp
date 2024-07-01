@@ -11,13 +11,13 @@ bool safe(int i, int j, int &n, int &m) {
     return i>-1 && j>-1 && i<n && j<m;
 }
 
-class Dsu {
+class DsuMaze {
     public:
         vector<vector<pp>> parent;
         vector<vector<int>> rank;
         int n, m;
 
-        Dsu(int _n, int _m) {
+        DsuMaze(int _n, int _m) {
             n = _n;
             m = _m;
 
@@ -73,7 +73,7 @@ void solve() {
         for (int i=0 ; i<n ; i++)
             cin>>v[i];
 
-        Dsu dsu = Dsu(n, m);
+        DsuMaze dsu = DsuMaze(n, m);
         int id = 0;
         vector<int> index;
         for (int i=0 ; i<n ; i++) {
