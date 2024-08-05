@@ -42,6 +42,17 @@ class Graph {
         }
     }
 
+    void dfs(int node) {
+        vis[node] = 1;
+
+        for (auto &c:edges[node]) {
+            int child = c.first;
+
+            if (!vis[child])
+                dfs(child);
+        }
+    }
+
     bool isCyclic(int node) {
         vis[node] = 1;
         anc[node] = 1;
