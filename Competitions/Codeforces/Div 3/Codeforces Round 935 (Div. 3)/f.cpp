@@ -32,7 +32,7 @@ class Compressor {
 class BIT {
     public:
         vector<int> tree;
-        int n;
+        int n;  
 
         BIT(int k) {
             n = k;
