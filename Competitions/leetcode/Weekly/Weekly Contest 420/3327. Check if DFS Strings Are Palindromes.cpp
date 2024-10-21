@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 class StringHashing {
@@ -9,7 +8,7 @@ class StringHashing {
             h[0] = s[0]-'A'
             h[k] = (h[k-1]*a + s[k]-'A')%m
 
-            p[0] = 1        
+            p[0] = 1
             p[k] = (p[k-1]*a)%m
 
             substr(a, b) = (h[b] - h[a-1]*p[b-a+1])%m
@@ -77,60 +76,69 @@ class StringHashing {
         }
 };
 
-void solve() {
-    freopen("a.txt", "r", stdin);
-    int t;
-    cin>>t;
-    
-    while(t--) {
-        int n, l, r;
-        cin>>n>>l>>r;
+class Solution {
+public:
+    vector<vector<int>> graph;
+    vector<int> sz;
+    vector<bool> ans;
 
-        string s;
-        cin>>s;
+    int n;
+    string str;
 
-        StringHashing hash = StringHashing(s);
-
-        int i = 0;
-        int j = n;
-
-        while(i<j) {
-            int mid = (i+j+1)/2;
-
-            int b = mid-1;
-            int comp1 = hash.get1(0, b);
-            int comp2 = hash.get2(0, b);
-            int x = b+1;
-            int cnt = 1;
-
-            while(x<n && cnt < l) {
-                b = x+mid-1;
-                if (b>=n)
-                    break;
-
-                int c1 = hash.get1(x, b);
-                int c2 = hash.get2(x, b);
-
-                if (comp1 == c1 && comp2 == c2) {
-                    x = b+1;
-                    cnt++;
-                } else {
-                    x++;
-                }
-            }
-
-            if (cnt == l) {
-                i = mid;
-            } else {
-                j = mid-1;
-            }
+    int dfs(int root, string &s) {
+        sz[root] = 0;
+        for (auto &child:graph[root]) {
+            sz[root] += dfs(child, s);
         }
 
-        cout<<i<<endl;
-    }
-}
+        str += s[root];
+        sz[root]++;
 
-int main() {
-    solve();
-    return 0;
-}
+        return sz[root];
+    }
+
+    void dfsComp(int root, int s, int e, StringHashing &hash) {
+        int l = e-s+1;
+        int mid = l/2;
+
+        if (l==1) ans[root] = 1;
+        else {
+            int s1 = n-1-e;
+            int e1 = n-1-(l&1 ? s+mid+1 : s+mid);
+            
+            ans[root] = (hash.get1(s, s+mid-1) == hash.get1(n+s1, n+e1)) && (hash.get2(s, s+mid-1) == hash.get2(n+s1, n+e1));
+        }
+
+        for (auto &child:graph[root]) {
+            l = sz[child];
+            dfsComp(child, s, s+l-1, hash);
+            s += l;
+        }
+    }
+
+    vector<bool> findAnswer(vector<int>& p, string s) {
+        n = p.size();
+
+        graph.resize(n);
+        sz.resize(n);
+
+        for (int i=0 ; i<n ; i++) {
+            if (p[i] != -1)
+                graph[p[i]].push_back(i);
+        }
+
+        for (int i=0 ; i<n ; i++)
+            sort(graph[i].begin(), graph[i].end());
+
+        dfs(0, s);
+        string cpy = str;
+        reverse(cpy.begin(), cpy.end());
+
+        StringHashing hash = StringHashing(str+cpy);
+
+        ans.resize(n);
+        dfsComp(0, 0, n-1, hash);
+        
+        return ans;
+    }
+};
