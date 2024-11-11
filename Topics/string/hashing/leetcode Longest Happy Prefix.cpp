@@ -107,6 +107,7 @@ public:
 };
 
 int main() {
+    vector<int> v = {1, 2, 4};
     cout<<Solution().longestPrefix("ababab");
     return 0;
 }
