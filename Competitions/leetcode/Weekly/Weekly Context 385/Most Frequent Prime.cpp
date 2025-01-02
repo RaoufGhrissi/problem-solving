@@ -1,28 +1,28 @@
-#include <bits/stdc++.h>
-#define ll long long
-#define pp pair<int,int>
+        #include <bits/stdc++.h>
+        #define ll long long
+        #define pp pair<int,int>
 
-using namespace std;
+        using namespace std;
 
-class Sieve {
-    public:
-        const static int N = 1e6;
-        bool prime[N];
-    
-        Sieve() {
-            memset(prime, 1, sizeof prime);
-            prime[0] = 0;
-            prime[1] = 0;
-            for (int i=2 ; i<=sqrt(N) ; i++) {
-                if (!prime[i]) continue;
-                int x = 2*i;
-                while(x<N) {
-                    prime[x] = 0;
-                    x += i;
+        class Sieve {
+            public:
+                const static int N = 1e6;
+                bool prime[N];
+            
+                Sieve() {
+                    memset(prime, 1, sizeof prime);
+                    prime[0] = 0;
+                    prime[1] = 0;
+                    for (int i=2 ; i<=sqrt(N) ; i++) {
+                        if (!prime[i]) continue;
+                        int x = 2*i;
+                        while(x<N) {
+                            prime[x] = 0;
+                            x += i;
+                        }
+                    }
                 }
-            }
-        }
-};
+        };
 
 class Solution {
 public:
