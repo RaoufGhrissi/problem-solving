@@ -23,7 +23,7 @@ class Dsu {
             if (parent[i] != i)
                 return parent[i] = find(parent[i]);
 
-            return parent[i] = i;
+            return i;
         }
 
         void unionn(int a, int b, int w) {

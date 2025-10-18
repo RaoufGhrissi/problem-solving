@@ -1,0 +1,10 @@
+7 2
+project 10 40
+sale 15 35
+timesheet 20 60
+crm 10 30
+inventory 25 90
+accounting 18 80
+purchase 22 70
+project_timesheet
+sale_project

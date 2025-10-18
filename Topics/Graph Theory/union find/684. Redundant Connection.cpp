@@ -22,12 +22,14 @@ class Dsu {
             if (parent[i] != i)
                 return parent[i] = find(parent[i]);
 
-            return parent[i] = i;
+            return i;
         }
 
         void unionn(int a, int b) {
             int p1 = find(a);
             int p2 = find(b);
+
+            if (p1 == p2) return;
 
             if (rank[p1] < rank[p2])
                 swap(p1, p2);

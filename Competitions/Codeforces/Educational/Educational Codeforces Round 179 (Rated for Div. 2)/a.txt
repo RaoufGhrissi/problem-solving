@@ -1,0 +1,39 @@
+3
+2 2
+cb
+c b
+b a
+10 10
+bbbbbbbbbb
+b a
+b c
+c b
+b a
+c a
+b c
+b c
+b a
+a b
+c aaaaaa
+30 20
+abcaababcbbcabcbbcabcbabbbbabc
+b c
+b c
+c a
+b c
+b c
+b a
+b c
+b c
+b a
+b a
+b a
+b a
+c a
+b c
+c a
+b c
+c a
+c a
+b c
+c b
